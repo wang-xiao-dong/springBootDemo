@@ -1,5 +1,7 @@
 package com.xiaodong.controller;
 
+import com.xiaodong.po.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,9 +19,11 @@ import java.util.Map;
 @RequestMapping("/test")
 @Controller
 public class Index {
+    @Autowired
+    User user;
     @ResponseBody
     @RequestMapping("/index")
     public String test(){
-        return "你访问了首页！！";
+        return "你访问了首页！！"+user.getName()+"===="+user.getAge();
     }
 }
